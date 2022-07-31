@@ -1,0 +1,15 @@
+{
+  "name": "opex-api",
+  "description": "Package for Opex api call",
+  "version": "0.1.0",
+  "author": "Opex",
+  "license": "MIT",
+  "main": "index.js",
+  "peerDependencies": {
+    "axios": "^0.22"
+  },
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "moment": "^2.29.4"
+  }
+}
