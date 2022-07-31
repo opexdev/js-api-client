@@ -130,8 +130,8 @@ export const getUserAttributes = () => {
     return axios.get(`/auth/realms/opex/user-profile`);
 }
 
-export const checkUserOtpConfigs = async (username) => {
-    const {data: {access_token}} = await getPanelToken();
+export const checkUserOtpConfigs = async (username, clientId, clientSecret) => {
+    const {data: {access_token}} = await getPanelToken(clientId, clientSecret);
     const params = new URLSearchParams();
     params.append('username', username);
     return axios.get(`/auth/realms/opex/user-management/user/security/check?${params.toString()}`, {
