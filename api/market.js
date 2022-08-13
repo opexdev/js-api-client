@@ -40,7 +40,7 @@ export const getMarketStats = (interval) => {
 export const getExchangeInfo = (interval) => {
     const params = new URLSearchParams();
     params.append('interval', interval);
-    return axios.get(`/api/v1/landing/marketStats?${params.toString()}`, {
+    return axios.get(`/api/v1/landing/exchangeInfo?${params.toString()}`, {
         data: params,
     })
 }
