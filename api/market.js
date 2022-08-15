@@ -23,8 +23,31 @@ export const getOrderBook = (symbol) => {
 }
 export const getOverview = (symbol, period) => {
     const params = new URLSearchParams();
-    params.append('symbol', symbol);
+    if (symbol) params.append('symbol', symbol);
     return axios.get(`/api/v3/ticker/${period}?${params.toString()}`, {
+        data: params,
+    })
+}
+
+export const getMarketStats = (interval) => {
+    const params = new URLSearchParams();
+    params.append('interval', interval);
+    params.append('limit', "10");
+    return axios.get(`/api/v1/landing/marketStats?${params.toString()}`, {
+        data: params,
+    })
+}
+export const getExchangeInfo = (interval) => {
+    const params = new URLSearchParams();
+    params.append('interval', interval);
+    return axios.get(`/api/v1/landing/exchangeInfo?${params.toString()}`, {
+        data: params,
+    })
+}
+export const getGlobalPrices = (usdSymbol) => {
+    const params = new URLSearchParams();
+    params.append('usdSymbol', usdSymbol);
+    return axios.get(`/api/v1/landing/globalPrices?${params.toString()}`, {
         data: params,
     })
 }
