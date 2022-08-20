@@ -8,14 +8,14 @@ export const userRegister = (user, panelToken) => {
     })
 }
 
-export const login = (credential, agent, clientId, clientSecret) => {
+export const login = (credential, agent, clientId, clientSecret, grantType = 'password') => {
     const params = new URLSearchParams();
     params.append('client_id', clientId);
     params.append('username', credential.username);
     params.append('password', credential.password);
     params.append('otp', credential.otp);
     params.append('agent', agent);
-    params.append('grant_type', 'password');
+    params.append('grant_type', grantType);
     params.append('client_secret', clientSecret);
     return axios.post('/auth/realms/opex/protocol/openid-connect/token', params)
 };
@@ -24,11 +24,11 @@ export const logout = () => {
     return axios.post(`/auth/realms/opex/user-management/user/logout`)
 }
 
-export const getPanelToken = async (clientId, clientSecret) => {
+export const getPanelToken = async (clientId, clientSecret, grantType = 'client_credentials') => {
     const params = new URLSearchParams();
     params.append('client_id', clientId);
     params.append('client_secret', clientSecret);
-    params.append('grant_type', 'client_credentials');
+    params.append('grant_type', grantType);
     return axios.post('/auth/realms/opex/protocol/openid-connect/token', params)
 }
 
@@ -122,9 +122,22 @@ export const parseWalletsResponse = (res) => {
     };
 }
 
-export const getActiveSessions = () => {
-    return axios.get(`/auth/realms/opex/user-management/user/sessions`);
+export const getUserAssets = (quoteAsset, calculateEvaluation = "true") => {
+    const params = new URLSearchParams();
+    params.append('quoteAsset', quoteAsset);
+    params.append('calculateEvaluation', calculateEvaluation);
+    return axios.get(`/api/v1/asset/getUserAsset?${params.toString()}`, {
+        data: params,
+    })
 }
+export const getUserAssetsEstimatedValue = (quoteAsset) => {
+    const params = new URLSearchParams();
+    params.append('quoteAsset', quoteAsset);
+    return axios.get(`/api/v1/asset/estimatedValue?${params.toString()}`, {
+        data: params,
+    })
+}
+
 
 export const getUserAttributes = () => {
     return axios.get(`/auth/realms/opex/user-profile`);

@@ -4,19 +4,19 @@ export const getLastPrices = () => {
     return axios.get(`/api/v3/ticker/price`)
 }
 
-export const getLastTrades = (symbol) => {
+export const getLastTrades = (symbol, limit = "25") => {
     const params = new URLSearchParams();
     params.append('symbol', symbol);
-    params.append('limit', "25");
+    params.append('limit', limit);
     return axios.get(`/api/v3/trades?${params.toString()}`, {
         data: params,
     })
 }
 
-export const getOrderBook = (symbol) => {
+export const getOrderBook = (symbol, limit = "20") => {
     const params = new URLSearchParams();
     params.append('symbol', symbol);
-    params.append('limit', "20");
+    params.append('limit', limit);
     return axios.get(`/api/v3/depth?${params.toString()}`, {
         data: params,
     })
@@ -29,10 +29,10 @@ export const getOverview = (symbol, period) => {
     })
 }
 
-export const getMarketStats = (interval) => {
+export const getMarketStats = (interval, limit = "10") => {
     const params = new URLSearchParams();
     params.append('interval', interval);
-    params.append('limit', "10");
+    params.append('limit', limit);
     return axios.get(`/api/v1/landing/marketStats?${params.toString()}`, {
         data: params,
     })
@@ -48,6 +48,15 @@ export const getGlobalPrices = (usdSymbol) => {
     const params = new URLSearchParams();
     params.append('usdSymbol', usdSymbol);
     return axios.get(`/api/v1/landing/globalPrices?${params.toString()}`, {
+        data: params,
+    })
+}
+
+export const getFeeForSymbol = (symbol, timestamp = Date.now().toString()) => {
+    const params = new URLSearchParams();
+    if (symbol) params.append('symbol', symbol);
+    params.append('timestamp', timestamp);
+    return axios.get(`/api/v1/asset/tradeFee?${params.toString()}`, {
         data: params,
     })
 }

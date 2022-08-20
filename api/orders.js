@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export const createOrder = async (symbol, side, order, type = "LIMIT") => {
+export const createOrder = async (symbol, side, order, type = "LIMIT", timeInForce = "GTC", timestamp = Date.now().toString()) => {
     const params = new URLSearchParams();
     params.append('symbol', symbol);
     params.append('side', side);
     params.append('type', type);
-    params.append('timeInForce', "GTC");
-    params.append('timestamp', Date.now().toString());
+    params.append('timeInForce', timeInForce);
+    params.append('timestamp', timestamp);
     params.append('quantity', order.reqAmount.toString());
     params.append('price', order.pricePerUnit.toString());
     return axios.post(`/api/v3/order`, null, {
@@ -17,11 +17,11 @@ export const createOrder = async (symbol, side, order, type = "LIMIT") => {
     })
 }
 
-export const cancelOrderByOrderID = (symbol, orderId) => {
+export const cancelOrderByOrderID = (symbol, orderId, timestamp = Date.now().toString()) => {
     const params = new URLSearchParams();
     params.append('symbol', symbol);
     params.append('orderId', orderId);
-    params.append('timestamp', Date.now().toString());
+    params.append('timestamp', timestamp);
 
     return axios.delete(`/api/v3/order?${params.toString()}`, {
         data: params,
@@ -31,11 +31,11 @@ export const cancelOrderByOrderID = (symbol, orderId) => {
     })
 }
 
-export const getOpenOrder = (symbol) => {
+export const getOpenOrder = (symbol, recvWindow = "1", timestamp = Date.now().toString()) => {
     const params = new URLSearchParams();
     params.append('symbol', symbol);
-    params.append('recvWindow', "1");
-    params.append('timestamp', Date.now().toString());
+    params.append('recvWindow', recvWindow);
+    params.append('timestamp', timestamp);
 
     return axios.get(`/api/v3/openOrders?${params.toString()}`, {
         data: params,
@@ -45,25 +45,25 @@ export const getOpenOrder = (symbol) => {
     })
 }
 
-export const getOrdersHistory = (symbol) => {
+export const getOrdersHistory = (symbol, recvWindow = "1", timestamp = Date.now().toString(), limit = "25") => {
     const params = new URLSearchParams();
     params.append('symbol', symbol);
-    params.append('recvWindow', "1");
-    params.append('timestamp', Date.now().toString());
-    params.append('limit', "25");
+    params.append('recvWindow', recvWindow);
+    params.append('timestamp', timestamp);
+    params.append('limit', limit);
 
     return axios.get(`/api/v3/allOrders?${params.toString()}`, {
         data: params,
     })
 }
 
-export const getMyTrades = async (symbol) => {
+export const getMyTrades = async (symbol, timestamp = Date.now().toString(), limit = "25") => {
     const params = new URLSearchParams();
     params.append('symbol', symbol);
     params.append('startTime', "");
     params.append('endTime', "");
-    params.append('timestamp', Date.now().toString());
-    params.append('limit', "25");
+    params.append('timestamp', timestamp);
+    params.append('limit', limit);
 
    return axios.get(`/api/v3/myTrades?${params.toString()}`, {
         data: params,
