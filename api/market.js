@@ -44,6 +44,13 @@ export const getExchangeInfo = (interval) => {
         data: params,
     })
 }
+export const getCurrencyInfo = (currency) => {
+    const params = new URLSearchParams();
+    if (currency) params.append('currency', currency);
+    return axios.get(`/api/v3/currencyInfo?${params.toString()}`, {
+        data: params,
+    })
+}
 export const getGlobalPrices = (usdSymbol) => {
     const params = new URLSearchParams();
     params.append('usdSymbol', usdSymbol);

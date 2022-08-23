@@ -43,6 +43,7 @@ export {getOrderBook} from "./api/market";
 export {getOverview} from "./api/market";
 export {getMarketStats} from "./api/market";
 export {getExchangeInfo} from "./api/market";
+export {getCurrencyInfo} from "./api/market";
 export {getGlobalPrices} from "./api/market";
 export {getFeeForSymbol} from "./api/market";
 export {getOpenOrder} from "./api/orders";
