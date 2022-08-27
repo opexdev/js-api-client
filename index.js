@@ -52,13 +52,13 @@ export {getMyTrades} from "./client/orders";
 export {getTokenByRefreshToken} from "./client/auth";
 
 //Admin apis (Needs admin token)
-export {adminGetUsersList} from "./admin/Users";
-export {adminGetUserInfo} from "./admin/Users";
-export {adminGetImpersonateLoginToken} from "./admin/Users";
-export {adminGetUserAttributedImages} from "./admin/Users";
-export {adminSetUserGroup} from "./admin/Users";
-export {adminSetUserKycStatus} from "./admin/Users";
-export {adminGetUsersListByGroup} from "./admin/Users";
-export {adminGetWithdrawsReq} from "./admin/Withdraw";
-export {adminGetWithdrawReqById} from "./admin/Withdraw";
-export {adminSetWithdrawStatus} from "./admin/Withdraw";
+export {adminGetUsersList} from "./admin/users";
+export {adminGetUserInfo} from "./admin/users";
+export {adminGetImpersonateLoginToken} from "./admin/users";
+export {adminGetUserAttributedImages} from "./admin/users";
+export {adminSetUserGroup} from "./admin/users";
+export {adminSetUserKycStatus} from "./admin/users";
+export {adminGetUsersListByGroup} from "./admin/users";
+export {adminGetWithdrawsReq} from "./admin/withdraw";
+export {adminGetWithdrawReqById} from "./admin/withdraw";
+export {adminSetWithdrawStatus} from "./admin/withdraw";
