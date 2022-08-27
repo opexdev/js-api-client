@@ -1,5 +1,8 @@
 import axios from "axios";
 
+const clientIdEnv = window.env.REACT_APP_CLIENT_ID
+const clientSecretEnv = window.env.REACT_APP_CLIENT_SECRET
+
 export const userRegister = (user, panelToken) => {
     return axios.post('/auth/realms/opex/user-management/user', user, {
         headers: {
@@ -8,7 +11,7 @@ export const userRegister = (user, panelToken) => {
     })
 }
 
-export const login = (credential, agent, clientId, clientSecret, grantType = 'password') => {
+export const login = (credential, agent, clientId = clientIdEnv, clientSecret = clientSecretEnv, grantType = 'password') => {
     const params = new URLSearchParams();
     params.append('client_id', clientId);
     params.append('username', credential.username);
@@ -24,7 +27,16 @@ export const logout = () => {
     return axios.post(`/auth/realms/opex/user-management/user/logout`)
 }
 
-export const getPanelToken = async (clientId, clientSecret, grantType = 'client_credentials') => {
+export const getTokenByRefreshToken = (refreshToken, clientId = clientIdEnv, clientSecret = clientSecretEnv) => {
+    const params = new URLSearchParams();
+    params.append('client_id', clientId);
+    params.append('client_secret', clientSecret);
+    params.append('grant_type', 'refresh_token');
+    params.append('refresh_token', refreshToken);
+    return axios.post('/auth/realms/opex/protocol/openid-connect/token', params);
+}
+
+export const getPanelToken = async (clientId = clientIdEnv, clientSecret = clientSecretEnv, grantType = 'client_credentials') => {
     const params = new URLSearchParams();
     params.append('client_id', clientId);
     params.append('client_secret', clientSecret);
@@ -143,7 +155,7 @@ export const getUserAttributes = () => {
     return axios.get(`/auth/realms/opex/user-profile`);
 }
 
-export const checkUserOtpConfigs = async (username, clientId, clientSecret) => {
+export const checkUserOtpConfigs = async (username, clientId = clientIdEnv, clientSecret = clientSecretEnv) => {
     const {data: {access_token}} = await getPanelToken(clientId, clientSecret);
     const params = new URLSearchParams();
     params.append('username', username);
