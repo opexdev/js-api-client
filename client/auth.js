@@ -59,10 +59,10 @@ export const requestForForgetPassword = (email, captcha) => {
 
 export const forgotPassword = (key, password, passwordConfirmation) => {
     const payload = {
-        "password": password,
-        "passwordConfirmation": passwordConfirmation
+        password,
+        passwordConfirmation
     }
-    return axios.post(`/auth/realms/opex/user-management/user/forgot?key=${key}`, payload)
+    return axios.put(`/auth/realms/opex/user-management/user/forgot?key=${key}`, payload)
 }
 
 export const requestForActivateOTP = () => {
