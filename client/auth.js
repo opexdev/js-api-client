@@ -53,12 +53,16 @@ export const getCaptchaImage = () => {
     })
 };
 
-export const requestForForgetPasswordEmail = (panelToken, email, captchaAnswer) => {
-    return axios.post(`/auth/realms/opex/user-management/user/forgot?email=${email}&captcha-answer=${captchaAnswer}`, null, {
-        headers: {
-            "Authorization": "Bearer " + panelToken
-        }
-    })
+export const requestForForgetPassword = (email, captcha) => {
+    return axios.post(`/auth/realms/opex/user-management/user/request-forgot?email=${email}&captcha=${captcha}`, null)
+}
+
+export const forgotPassword = (key, password, passwordConfirmation) => {
+    const payload = {
+        "password": password,
+        "passwordConfirmation": passwordConfirmation
+    }
+    return axios.post(`/auth/realms/opex/user-management/user/forgot?key=${key}`, payload)
 }
 
 export const requestForActivateOTP = () => {
