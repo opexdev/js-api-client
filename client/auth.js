@@ -57,6 +57,10 @@ export const requestForForgetPassword = (email, captcha) => {
     return axios.post(`/auth/realms/opex/user-management/user/request-forgot?email=${email}&captcha=${captcha}`, null)
 }
 
+export const requestForVerifyEmail = (email, captcha) => {
+    return axios.post(`/auth/realms/opex/user-management/user/request-verify?email=${email}&captcha=${captcha}`, null)
+}
+
 export const forgotPassword = (key, password, passwordConfirmation) => {
     const payload = {
         password,

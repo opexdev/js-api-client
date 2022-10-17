@@ -20,6 +20,7 @@ export {sendFileToUserStorage} from "./client/auth";
 export {setKycFileToUserAttributes} from "./client/auth";
 export {getCaptchaImage} from "./client/auth";
 export {requestForForgetPassword} from "./client/auth";
+export {requestForVerifyEmail} from "./client/auth";
 export {forgotPassword} from "./client/auth";
 export {userRegister} from "./client/auth";
 export {getKycStatus} from "./client/auth";
