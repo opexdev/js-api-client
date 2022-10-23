@@ -42,6 +42,7 @@ export {getIPGDeposit} from "./client/ipg";
 export {getLastPrices} from "./client/market";
 export {getLastTrades} from "./client/market";
 export {getOrderBook} from "./client/market";
+export {getQuoteCurrencies} from "./client/market";
 export {getOverview} from "./client/market";
 export {getMarketStats} from "./client/market";
 export {getExchangeInfo} from "./client/market";

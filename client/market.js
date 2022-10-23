@@ -21,9 +21,15 @@ export const getOrderBook = (symbol, limit = "20") => {
         data: params,
     })
 }
-export const getOverview = (symbol, period) => {
+
+export const getQuoteCurrencies = () => {
+    return axios.get(`/api/v3/currencyInfo/quotes`)
+}
+
+export const getOverview = (symbol, period, quote) => {
     const params = new URLSearchParams();
     if (symbol) params.append('symbol', symbol);
+    if (quote) params.append('quote', quote);
     return axios.get(`/api/v3/ticker/${period}?${params.toString()}`, {
         data: params,
     })
