@@ -163,6 +163,30 @@ export const getUserAttributes = () => {
     return axios.get(`/auth/realms/opex/user-profile`);
 }
 
+export const getAPIKeyList = () => {
+    return axios.get(`/api/v1/api-key`)
+}
+
+export const createAPIKey = (label, expiration, allowedIPs) => {
+    const params = new URLSearchParams();
+    params.append('label', label);
+    params.append('expiration', expiration);
+    params.append('allowedIPs', allowedIPs);
+    return axios.post('/api/v1/api-key', params)
+};
+
+export const enableAPIKey = (apiKey) => {
+    return axios.put(`/api/v1/api-key/${apiKey}/enable`)
+}
+
+export const disableAPIKey = (apiKey) => {
+    return axios.put(`/api/v1/api-key/${apiKey}/disable`)
+}
+
+export const deleteAPIKey = (apiKey) => {
+    return axios.delete(`/api/v1/api-key/${apiKey}`)
+}
+
 export const checkUserOtpConfigs = async (username, clientId = clientIdEnv, clientSecret = clientSecretEnv) => {
     const {data: {access_token}} = await getPanelToken(clientId, clientSecret);
     const params = new URLSearchParams();
