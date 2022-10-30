@@ -167,12 +167,8 @@ export const getAPIKeyList = () => {
     return axios.get(`/api/v1/api-key`)
 }
 
-export const createAPIKey = (label, expiration, allowedIPs) => {
-    const params = new URLSearchParams();
-    params.append('label', label);
-    params.append('expiration', expiration);
-    params.append('allowedIPs', allowedIPs);
-    return axios.post('/api/v1/api-key', params)
+export const createAPIKey = (apiKeyData) => {
+    return axios.post('/api/v1/api-key', apiKeyData)
 };
 
 export const enableAPIKey = (apiKey) => {
