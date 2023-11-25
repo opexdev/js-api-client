@@ -70,3 +70,6 @@ export {adminGetUsersListByGroup} from "./admin/users";
 export {adminGetWithdrawsReq} from "./admin/withdraw";
 export {adminGetWithdrawReqById} from "./admin/withdraw";
 export {adminSetWithdrawStatus} from "./admin/withdraw";
+export {adminGetWhiteList} from "./admin/whiteList";
+export {adminUpdateWhiteList} from "./admin/whiteList";
+export {adminDeleteWhiteList} from "./admin/whiteList";
