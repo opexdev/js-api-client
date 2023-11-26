@@ -5,7 +5,7 @@ export const adminGetWhiteList = () => {
 }
 
 export const adminUpdateWhiteList = (whiteListData) => {
-    return axios.post('/admin/system/v1/whitelist', {data:whiteListData})
+    return axios.post('/admin/system/v1/whitelist', whiteListData)
 };
 
 export const adminDeleteWhiteList = (whiteListData) => {
