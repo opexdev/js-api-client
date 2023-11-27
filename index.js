@@ -1,6 +1,7 @@
 export {login} from "./client/auth";
 export {logout} from "./client/auth";
 export {parseToken} from "./client/auth";
+export {setUserConfig} from "./client/auth";
 export {cancelOrderByOrderID} from "./client/orders";
 export {createOrder} from "./client/orders";
 export {sendIPGDepositReq} from "./client/ipg";
