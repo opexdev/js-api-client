@@ -24,8 +24,3 @@ export const getWithdrawTxs = (currency, timestamp = Date.now().toString()) => {
     })
 }
 
-export const getTransactionHistory = (user_id, query) => {
-    return axios.post(`/wallet/transaction/${user_id}`, query)
-}
-
-

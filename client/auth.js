@@ -194,7 +194,3 @@ export const checkUserOtpConfigs = async (username, clientId = clientIdEnv, clie
         },
     })
 }
-
-export const setUserConfig = (query) => {
-    return axios.post(`/config/user/v1`, query)
-}
