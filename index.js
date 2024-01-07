@@ -59,6 +59,7 @@ export {getOpenOrder} from "./client/orders";
 export {getOrdersHistory} from "./client/orders";
 export {getMyTrades} from "./client/orders";
 export {getTokenByRefreshToken} from "./client/auth";
+export {getSystemConfig} from "./client/global";
 
 //Admin apis (Needs admin token)
 export {adminGetUsersList} from "./admin/users";
