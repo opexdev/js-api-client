@@ -75,3 +75,4 @@ export {adminSetWithdrawStatus} from "./admin/withdraw";
 export {adminGetWhiteList} from "./admin/whiteList";
 export {adminUpdateWhiteList} from "./admin/whiteList";
 export {adminDeleteWhiteList} from "./admin/whiteList";
+export {adminGetWalletData} from "./admin/wallet";
