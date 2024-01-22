@@ -76,6 +76,7 @@ export {adminGetWhiteList} from "./admin/whiteList";
 export {adminUpdateWhiteList} from "./admin/whiteList";
 export {adminDeleteWhiteList} from "./admin/whiteList";
 export {adminGetWalletData} from "./admin/wallet";
+export {adminGetWalletTotalUsers} from "./admin/wallet";
 export {adminGetChains} from "./admin/wallet";
 export {adminGetAddressByChain} from "./admin/wallet";
 export {adminGetAllBalanceByChain} from "./admin/wallet";

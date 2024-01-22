@@ -9,6 +9,11 @@ export const adminGetWalletData = (params) => {
         params: params
     })
 }
+export const adminGetWalletTotalUsers = (params) => {
+    return axios.get(`/stats/wallets/user/total`, {
+        params: params
+    })
+}
 
 export const adminGetChains = () => {
     return axios.get('/v1/chain')
