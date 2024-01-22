@@ -10,7 +10,7 @@ export const adminGetWalletData = (params) => {
     })
 }
 export const adminGetWalletTotalUsers = (params) => {
-    return axios.get(`/stats/wallets/user/total`, {
+    return axios.get(`/wallet/stats/wallets/user/total`, {
         params: params
     })
 }
