@@ -5,7 +5,7 @@ import axios from "axios";
 }*/
 
 export const adminGetWalletData = (params) => {
-    return axios.get(`/wallet/admin/wallets`, {
+    return axios.get(`/wallet/stats/wallets`, {
         params: params
     })
 }
