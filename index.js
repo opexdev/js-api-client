@@ -37,8 +37,7 @@ export {enableAPIKey} from "./client/auth";
 export {disableAPIKey} from "./client/auth";
 export {deleteAPIKey} from "./client/auth";
 export {checkUserOtpConfigs} from "./client/auth";
-export {getDepositTxs} from "./client/txs";
-export {getWithdrawTxs} from "./client/txs";
+
 export {getChartData} from "./client/market";
 export {parseCandleData} from "./client/market";
 export {removeTestCoin} from "./client/market";
@@ -60,6 +59,15 @@ export {getOrdersHistory} from "./client/orders";
 export {getMyTrades} from "./client/orders";
 export {getTokenByRefreshToken} from "./client/auth";
 export {getSystemConfig} from "./client/global";
+
+export {getDepositTxs} from "./client/txs";
+export {getWithdrawTxs} from "./client/txs";
+export {getTransactionHistory} from "./client/txs";
+
+
+export {getBuyAndSellHistory} from "./client/txs";
+export {getDepositHistory} from "./client/txs";
+export {getWithdrawHistory} from "./client/txs";
 
 //Admin apis (Needs admin token)
 export {adminGetUsersList} from "./admin/users";
