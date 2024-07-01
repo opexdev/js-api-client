@@ -37,8 +37,8 @@ export const getBuyAndSellHistory = (user_id, query) => {
 export const getDepositHistory = (user_id, query) => {
     return axios.post(`/wallet/v1/deposit/${user_id}/history`, query)
 }
-export const getWithdrawHistory = (user_id, query) => {
-    return axios.post(`/sapi/v2/capital/withdraw/history/?${user_id}`, query)
+export const getWithdrawHistory = (query) => {
+    return axios.post(`/sapi/v2/capital/withdraw/history`, query)
 }
 
 
