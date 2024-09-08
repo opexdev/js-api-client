@@ -62,7 +62,7 @@ export {getSystemConfig} from "./client/global";
 
 export {getDepositTxs} from "./client/txs";
 export {getWithdrawTxs} from "./client/txs";
-export {getTransactionHistory} from "./client/txs";
+export {getTransactionsHistory} from "./client/txs";
 
 
 export {getBuyAndSellHistory} from "./client/txs";
