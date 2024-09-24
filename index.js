@@ -9,6 +9,7 @@ export {verifyIPGDepositReq} from "./client/ipg";
 export {getIPGInvoice} from "./client/ipg";
 export {cancelIPGDepositReq} from "./client/ipg";
 export {sendWithdrawReq} from "./client/withdraw";
+export {cancelWithdrawReq} from "./client/withdraw";
 export {expireAllSessionsExceptCurrent} from "./client/sessions";
 export {expireSessionById} from "./client/sessions";
 export {getPanelToken} from "./client/auth";

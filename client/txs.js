@@ -34,11 +34,11 @@ export const getTransactionsHistory = (query) => {
 export const getBuyAndSellHistory = (user_id, query) => {
     return axios.post(`/market/v1/user/tx/${user_id}/history`, query)
 }
-export const getDepositHistory = (user_id, query) => {
-    return axios.post(`/wallet/v1/deposit/${user_id}/history`, query)
+export const getDepositHistory = (query) => {
+    return axios.post(`/wallet/v1/deposit/history`, query)
 }
 export const getWithdrawHistory = (query) => {
-    return axios.post(`/sapi/v2/capital/withdraw/history`, query)
+    return axios.post(`/wallet/withdraw/history`, query)
 }
 
 
