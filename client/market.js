@@ -57,6 +57,16 @@ export const getCurrencyInfo = (currency) => {
         data: params,
     })
 }
+
+export const getGatewaysByCurrency = (currency, config = {}) => {
+    return axios.get(`/wallet/currency/${currency}`, {
+        params: {
+            ...config,
+            currency,
+        }
+    });
+};
+
 export const getGlobalPrices = (usdSymbol) => {
     const params = new URLSearchParams();
     params.append('usdSymbol', usdSymbol);
