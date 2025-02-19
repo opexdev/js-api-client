@@ -67,6 +67,14 @@ export const getGatewaysByCurrency = (currency, config = {}) => {
     });
 };
 
+export const fetchChartData = ({ symbols, period }) => {
+    const data = { symbols, period };
+
+    return axios.post(`/v1/chart/spark-line`, data, {
+        data,
+    });
+};
+
 export const getGlobalPrices = (usdSymbol) => {
     const params = new URLSearchParams();
     params.append('usdSymbol', usdSymbol);

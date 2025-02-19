@@ -56,6 +56,7 @@ export {getCurrencyInfo} from "./client/market";
 export {getGlobalPrices} from "./client/market";
 export {getFeeForSymbol} from "./client/market";
 export {getGatewaysByCurrency} from "./client/market";
+export {fetchChartData} from "./client/market";
 export {getOpenOrder} from "./client/orders";
 export {getOrdersHistory} from "./client/orders";
 export {getMyTrades} from "./client/orders";
