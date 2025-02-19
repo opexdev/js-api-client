@@ -70,7 +70,7 @@ export const getGatewaysByCurrency = (currency, config = {}) => {
 export const fetchChartData = ({ symbols, period }) => {
     const data = { symbols, period };
 
-    return axios.post(`/v1/chart/spark-line`, data, {
+    return axios.post(`/market/v1/chart/spark-line`, data, {
         data,
     });
 };
