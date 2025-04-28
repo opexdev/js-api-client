@@ -16,10 +16,11 @@ export const adminGetWithdrawReqById = (withdraw_id) => {
     return axios.get(`/wallet/admin/withdraw/${withdraw_id}`,)
 }
 
-export const adminSetWithdrawStatus = (id, withdrawState, withdrawExp) => {
+export const adminSetWithdrawStatus = (id, withdrawState, withdrawExp, destNote=null) => {
     const params = new URLSearchParams();
     if (withdrawState === "accept") {
         params.append('destTransactionRef', withdrawExp);
+        params.append('destNote', destNote);
     } else {
         params.append('reason', withdrawExp);
     }
